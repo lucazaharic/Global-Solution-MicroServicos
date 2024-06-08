@@ -25,18 +25,18 @@ export class ProjectsComponent {
       tipoProjeto: [''],
       tipoParticipacao: ['']
     });
-    this.list();
   }
 
   applyFilters() {
     const filters = this.projectsForm.value;
     this.projectsService.list(filters).subscribe((projetos) => (this.projetos = projetos));
   }
+
+
   list(): void {
     //retorna uma lista de clientes do servidor e atribui à propriedade 'clientes'
-    this.projectsService.list(this.applyFilters).subscribe((list) => (this.projetos = list));
+    this.projectsService.list({}).subscribe((projetos) => (this.projetos = projetos));
   }
-  //método para remover um cliente
   ngOnInit(): void {
     this.list();
   }

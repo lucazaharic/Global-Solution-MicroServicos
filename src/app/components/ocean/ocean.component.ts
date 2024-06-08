@@ -33,11 +33,6 @@ export class OceanComponent {
     console.warn(this.oceanos);
   }
 
-  onSubmit(): void {
-    const formValue = this.oceanForm.value;
-    formValue.temperaturaAgua = Number(formValue.temperaturaAgua);
-    formValue.pH = Number(formValue.pH);
-  }
 
 
   list(): void {
@@ -45,7 +40,6 @@ export class OceanComponent {
      this.oceanService.list({}).subscribe((oceanos) => (this.oceanos = oceanos));
   }
 
-    //método para remover um cliente
   ngOnInit(): void {
     this.list();
   }
