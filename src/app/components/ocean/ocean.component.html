@@ -1,7 +1,7 @@
 <div class="container">
   <div class="filters">
     <h2>Filters</h2>
-    <form [formGroup]="oceanForm" (ngSubmit)="applyFilters()" (ngSubmit)="list()">
+    <form [formGroup]="oceanForm" (ngSubmit)="applyFilters()">
       <div class="filter-row">
         <label>Regiao:
           <input formControlName="regiao" placeholder="All">
