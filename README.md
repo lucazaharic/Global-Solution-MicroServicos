@@ -1,9 +1,8 @@
 
 # Global-Solution-MicroServicos
-GLOBAL SOLUTION Realizada pelos alunos do 3SIR
+GLOBAL SOLUTION Realizada pelos alunos do 3SIR: 
 # Rafael Fiel RM94654
 # Luca Zaharic RM95794
-=======
 # OceanDataExplorer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
