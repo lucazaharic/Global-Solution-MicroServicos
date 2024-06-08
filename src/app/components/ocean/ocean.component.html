@@ -1,16 +1,16 @@
 <div class="container">
   <div class="filters">
     <h2>Filters</h2>
-    <form [formGroup]="oceanForm" (ngSubmit)="applyFilters()">
+    <form [formGroup]="oceanForm" (ngSubmit)="applyFilters()" (ngSubmit)="list()">
       <div class="filter-row">
         <label>Regiao:
           <input formControlName="regiao" placeholder="All">
         </label>
         <label>Temperatura Agua:
-          <input formControlName="temperaturaAgua" placeholder="All">
+          <input type="number" formControlName="temperaturaAgua" placeholder="All">
         </label>
         <label>pH:
-          <input formControlName="pH" placeholder="All">
+          <input type="number" formControlName="pH" placeholder="All">
         </label>
         <label>Nivel Poluicao:
           <input formControlName="nivelPoluicao" placeholder="All">

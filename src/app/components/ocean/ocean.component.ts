@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Ocean } from '../../interfaces/Ocean';
 import { OceanService } from '../../services/ocean.service';
 import { CommonModule } from '@angular/common'; //importar o módulo CommonModule para
-import { FormGroup } from '@angular/forms'; //importar o módulo FormGroup para criar um formulário
+import { FormGroup, Validators } from '@angular/forms'; //importar o módulo FormGroup para criar um formulário
 import { FormBuilder } from '@angular/forms';  //importar o módulo FormBuilder para criar um formulário
 import { ReactiveFormsModule } from '@angular/forms'; //importar o módulo ReactiveFormsModule para criar um formulário
 
@@ -21,8 +21,8 @@ export class OceanComponent {
   constructor(private oceanService: OceanService, private formBuilder: FormBuilder) {
     this.oceanForm = this.formBuilder.group({
       regiao: [''],
-      temperaturaAgua: [''],
-      pH: [''],
+      temperaturaAgua: ['', Validators.pattern('^[0-9]*$')],
+      pH: ['', Validators.pattern('^[0-9]*$')],
       nivelPoluicao: ['']
     }); //criar um formulário com os campos nome e telefone
   }
@@ -31,6 +31,12 @@ export class OceanComponent {
     const filters = this.oceanForm.value;
     this.oceanService.list(filters).subscribe((oceanos) => (this.oceanos = oceanos));
     console.warn(this.oceanos);
+  }
+
+  onSubmit(): void {
+    const formValue = this.oceanForm.value;
+    formValue.temperaturaAgua = Number(formValue.temperaturaAgua);
+    formValue.pH = Number(formValue.pH);
   }
 
 

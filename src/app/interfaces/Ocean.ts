@@ -1,6 +1,6 @@
 export interface Ocean {
   regiao: string;
-  temperaturaAgua: string;
-  pH: string;
+  temperaturaAgua: number;
+  pH: number;
   nivelPoluicao:string;
 }
