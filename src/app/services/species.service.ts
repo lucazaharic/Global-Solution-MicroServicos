@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, filter } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Species } from '../interfaces/Species';
 
 @Injectable({
@@ -19,8 +19,8 @@ export class SpeciesService {
       }
     }
 
+    return this.http.get<Species[]>(this.apiUrl, { params });
 
 
-    return this.http.get<Species[]>(this.apiUrl) as Observable<Species[]>;
   }
 }
