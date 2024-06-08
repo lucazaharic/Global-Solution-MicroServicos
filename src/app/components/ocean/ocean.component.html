@@ -1,0 +1,82 @@
+<p>ocean works!</p>
+
+<div class="container">
+  <div class="filters">
+    <h2>Filters</h2>
+    <form [formGroup]="oceanForm" (ngSubmit)="applyFilters()">
+      <div class="filter-row">
+        <label>Regiao:
+          <input formControlName="regiao" placeholder="All">
+        </label>
+        <label>Temperatura Agua:
+          <input formControlName="temperaturaAgua" placeholder="All">
+        </label>
+        <label>pH:
+          <input formControlName="pH" placeholder="All">
+        </label>
+        <label>Nivel Poluicao:
+          <input formControlName="nivelPoluicao" placeholder="All">
+        </label>
+      </div>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="data-table">
+    <h2>Data Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Regiao</th>
+          <th>Temperatura Agua</th>
+          <th>pH</th>
+          <th>Nivel Poluicao</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of oceanos; track $index)
+            {
+            <tr>
+                <td>{{item.regiao}}</td>
+                <td>{{item.temperaturaAgua}}</td>
+                <td>{{item.pH}}</td>
+                <td>{{item.nivelPoluicao}}</td>
+            </tr>
+            }
+      </tbody>
+    </table>
+    <div class="pagination">
+      <span>Previous</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>Next</span>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="container-fluid">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Regiao</th>
+                <th>Temperatura Agua</th>
+                <th>pH</th>
+                <th>Nivel Poluicao</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of oceanos; track $index)
+            {
+            <tr>
+                <td>{{item.regiao}}</td>
+                <td>{{item.temperaturaAgua}}</td>
+                <td>{{item.pH}}</td>
+                <td>{{item.nivelPoluicao}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div> -->

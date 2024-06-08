@@ -1,0 +1,24 @@
+<p>projects works!</p>
+
+<div class="container-fluid">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome Projeto</th>
+                <th>Tipo do Projeto</th>
+                <th>Tipo de Participação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of projetos; track $index)
+            {
+            <tr>
+                <td>{{item.nomeProjeto}}</td>
+                <td>{{item.tipoProjeto}}</td>
+                <td>{{item.tipoParticipacao}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
