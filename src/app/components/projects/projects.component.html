@@ -1,24 +1,45 @@
-<p>projects works!</p>
-
-<div class="container-fluid">
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Nome Projeto</th>
+<div class="container">
+  <div class="filters">
+    <h2>Filters</h2>
+    <form [formGroup]="projectsForm" (ngSubmit)="applyFilters()">
+      <div class="filter-row">
+        <label>Tipo do projeto:
+          <input formControlName="tipoProjeto" placeholder="All">
+        </label>
+        <label>Tipo de Participacao:
+          <input formControlName="tipoParticipacao" placeholder="All">
+        </label>
+      </div>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="data-table">
+    <h2>Data Table</h2>
+    <table>
+      <thead>
+        <tr>
+           <th>Nome Projeto</th>
                 <th>Tipo do Projeto</th>
                 <th>Tipo de Participação</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of projetos; track $index)
+        </tr>
+      </thead>
+      <tbody>
+        @for(item of projetos; track $index)
             {
             <tr>
-                <td>{{item.nomeProjeto}}</td>
                 <td>{{item.tipoProjeto}}</td>
                 <td>{{item.tipoParticipacao}}</td>
+            
             </tr>
             }
-        </tbody>
+      </tbody>
     </table>
+    <div class="pagination">
+      <span>Previous</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>Next</span>
+    </div>
+  </div>
 </div>

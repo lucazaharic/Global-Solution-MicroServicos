@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Projects } from '../interfaces/Projects';
@@ -11,7 +11,14 @@ export class ProjectsService {
   constructor(private http: HttpClient) {
    }
 
-   list(): Observable<Projects[]> {
+   list(filters : any): Observable<Projects[]> {
+    let params = new HttpParams();
+    for (const key in filters) {
+      if (filters[key]) {
+        params = params.set(key, filters[key])
+      }
+    }
     return this.http.get<Projects[]>(this.apiUrl) as Observable<Projects[]>;
   }
 }
+

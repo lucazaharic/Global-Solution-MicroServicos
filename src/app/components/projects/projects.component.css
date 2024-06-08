@@ -1,0 +1,70 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.filters, .data-table {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.filters h2, .data-table h2 {
+  margin-top: 0;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-row label {
+  flex: 1;
+  min-width: 150px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.filter-row input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination span {
+  margin: 0 5px;
+  cursor: pointer;
+}
