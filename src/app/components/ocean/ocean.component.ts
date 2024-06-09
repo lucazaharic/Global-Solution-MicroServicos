@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Ocean } from '../../interfaces/Ocean';
 import { OceanService } from '../../services/ocean.service';
-import { CommonModule } from '@angular/common'; //importar o módulo CommonModule para
-import { FormGroup, Validators } from '@angular/forms'; //importar o módulo FormGroup para criar um formulário
-import { FormBuilder } from '@angular/forms';  //importar o módulo FormBuilder para criar um formulário
-import { ReactiveFormsModule } from '@angular/forms'; //importar o módulo ReactiveFormsModule para criar um formulário
+import { CommonModule } from '@angular/common'; 
+import { FormGroup, Validators } from '@angular/forms'; 
+import { FormBuilder } from '@angular/forms';  
+import { ReactiveFormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-ocean',
@@ -24,19 +24,16 @@ export class OceanComponent {
       temperaturaAgua: ['', Validators.pattern('^[0-9]*$')],
       pH: ['', Validators.pattern('^[0-9]*$')],
       nivelPoluicao: ['']
-    }); //criar um formulário com os campos nome e telefone
+    }); 
   }
 
   applyFilters(){
     const filters = this.oceanForm.value;
     this.oceanService.list(filters).subscribe((oceanos) => (this.oceanos = oceanos));
-    console.warn(this.oceanos);
   }
 
 
-
   list(): void {
-    //retorna uma lista de clientes do servidor e atribui à propriedade 'clientes'
      this.oceanService.list({}).subscribe((oceanos) => (this.oceanos = oceanos));
   }
 

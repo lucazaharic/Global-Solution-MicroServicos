@@ -6,6 +6,7 @@ import { Ocean } from '../interfaces/Ocean';
 @Injectable({
   providedIn: 'root'
 })
+
 export class OceanService {
   private apiUrl = 'https://fiap-3sis-gs-20241.azurewebsites.net/OceanData?pagina=1&qtde=20';
 

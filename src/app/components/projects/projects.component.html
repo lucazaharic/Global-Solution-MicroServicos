@@ -3,6 +3,9 @@
     <h2>Filters</h2>
     <form [formGroup]="projectsForm" (ngSubmit)="applyFilters()">
       <div class="filter-row">
+          <label>Nome do projeto:
+          <input formControlName="nomeProjeto" placeholder="All">
+        </label>
         <label>Tipo do projeto:
           <input formControlName="tipoProjeto" placeholder="All">
         </label>
@@ -23,21 +26,13 @@
           <th>Tipo de Participação</th>
         </tr>
       </thead>
-
       <tbody>
-        @for (item of projetos; track $index)
-        {
-        <tr>
+        <tr *ngFor="let item of projetos">
           <td>{{item.nomeProjeto}}</td>
           <td>{{item.tipoProjeto}}</td>
           <td>{{item.tipoParticipacao}}</td>
-
         </tr>
-        }
-
       </tbody>
-
-
     </table>
     <div class="pagination">
       <span>Previous</span>

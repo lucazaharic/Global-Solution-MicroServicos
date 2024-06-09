@@ -1,46 +1,44 @@
 <div class="container">
-    <div class="filters">
-      <h2>Filters</h2>
-      <form [formGroup]="speciesForm" (ngSubmit)="applyFilters()">
-        <div class="filter-row">
-          <label>Nome:
-            <input formControlName="nome" placeholder="All">
-          </label>
-          <label>Status:
-            <input formControlName="status" placeholder="All">
-          </label>
-        </div>
-        <button type="submit">Search</button>
-      </form>
-    </div>
-    <div class="data-table">
-      <h2>Data Table</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          @for (item of especies; track $index)
-              {
-              <tr>
-                  <td>{{item.nome}}</td>
-                  <td>{{item.status}}</td>
-              </tr>
-              }
-        </tbody>
-
-      </table>
-      <div class="pagination">
-        <span>Previous</span>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>Next</span>
+  <div class="filters">
+    <h2>Filters</h2>
+    <form [formGroup]="speciesForm" (ngSubmit)="applyFilters()">
+      <div class="filter-row">
+        <label>Nome:
+          <input formControlName="nome" placeholder="All">
+        </label>
+        <label>Status:
+          <input formControlName="status" placeholder="All">
+        </label>
       </div>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="data-table">
+    <h2>Data Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        @for(item of especies; track $index)
+        {
+        <tr>
+          <td>{{item.nome}}</td>
+          <td>{{item.status}}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <div class="pagination">
+      <span>Previous</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>Next</span>
     </div>
   </div>
-  
+</div>
