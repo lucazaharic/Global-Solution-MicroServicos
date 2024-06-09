@@ -1,9 +1,11 @@
+<!-- projects.component.html -->
+
 <div class="container">
   <div class="filters">
     <h2>Filters</h2>
     <form [formGroup]="projectsForm" (ngSubmit)="applyFilters()">
       <div class="filter-row">
-          <label>Nome do projeto:
+        <label>Nome do Projeto:
           <input formControlName="nomeProjeto" placeholder="All">
         </label>
         <label>Tipo do projeto:
@@ -27,11 +29,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of projetos">
-          <td>{{item.nomeProjeto}}</td>
-          <td>{{item.tipoProjeto}}</td>
-          <td>{{item.tipoParticipacao}}</td>
-        </tr>
+        <ng-container *ngFor="let item of projetos">
+          <tr *ngFor="let projeto of item.projetosConservacao">
+            <td>{{projeto.nomeProjeto}}</td>
+            <td>{{projeto.tipoProjeto}}</td>
+            <td>{{projeto.tipoParticipacao}}</td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
     <div class="pagination">

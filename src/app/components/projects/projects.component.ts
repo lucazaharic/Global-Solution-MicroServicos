@@ -1,3 +1,5 @@
+// projects.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProjectsService } from '../../services/projects.service';
@@ -18,9 +20,9 @@ export class ProjectsComponent implements OnInit {
 
   constructor(private projectsService: ProjectsService, private formBuilder: FormBuilder) {
     this.projectsForm = this.formBuilder.group({
-      nomeProjeto:[''],
+      nomeProjeto: [''],
       tipoProjeto: [''],
-      tipoParticipacao: [''],
+      tipoParticipacao: ['']
     });
   }
 
@@ -31,12 +33,14 @@ export class ProjectsComponent implements OnInit {
   applyFilters(): void {
     const filters = this.projectsForm.value;
     this.projectsService.list(filters).subscribe((projetos) => {
+      console.log('Filtered Projects:', projetos); // Adicione esta linha para verificar os dados filtrados recebidos
       this.projetos = projetos;
     });
   }
 
   list(): void {
     this.projectsService.list({}).subscribe((projetos) => {
+      console.log('All Projects:', projetos); // Adicione esta linha para verificar todos os dados recebidos
       this.projetos = projetos;
     });
   }
