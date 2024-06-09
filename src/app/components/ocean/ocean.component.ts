@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ocean } from '../../interfaces/Ocean';
 import { OceanService } from '../../services/ocean.service';
 import { CommonModule } from '@angular/common'; 
@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './ocean.component.css'
 })
 
-export class OceanComponent {
+export class OceanComponent implements OnInit {
   oceanForm: FormGroup = new FormGroup({}); //criar um formulário
   oceanos: Ocean[] = [];
 
@@ -22,7 +22,9 @@ export class OceanComponent {
     this.oceanForm = this.formBuilder.group({
       regiao: [''],
       temperaturaAgua: ['', Validators.pattern('^[0-9]*$')],
-      pH: ['', Validators.pattern('^[0-9]*$')],
+      pH: ['', Validators.pattern('^[0-9]+(\.[0-9]+)?$')],
+      // temperaturaAgua: [''],
+      // pH: [''],
       nivelPoluicao: ['']
     }); 
   }
@@ -31,14 +33,13 @@ export class OceanComponent {
     const filters = this.oceanForm.value;
     this.oceanService.list(filters).subscribe((oceanos) => (this.oceanos = oceanos));
   }
-
-
+    
   list(): void {
-     this.oceanService.list({}).subscribe((oceanos) => (this.oceanos = oceanos));
+      this.oceanService.list({}).subscribe((oceanos) => (this.oceanos = oceanos));
   }
-
+      
   ngOnInit(): void {
-    this.list();
+        this.list();
   }
 }
 

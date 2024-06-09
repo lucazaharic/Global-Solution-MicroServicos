@@ -31,15 +31,12 @@
         </tr>
       </thead>
       <tbody>
-        @for (item of oceanos; track $index)
-            {
-            <tr>
-                <td>{{item.regiao}}</td>
-                <td>{{item.temperaturaAgua}}</td>
-                <td>{{item.pH}}</td>
-                <td>{{item.nivelPoluicao}}</td>
-            </tr>
-            }
+        <tr *ngFor="let item of oceanos">
+          <td>{{item.regiao}}</td>
+          <td>{{item.temperaturaAgua}}</td>
+          <td>{{item.pH}}</td>
+          <td>{{item.nivelPoluicao}}</td>
+        </tr>
       </tbody>
     </table>
     <div class="pagination">

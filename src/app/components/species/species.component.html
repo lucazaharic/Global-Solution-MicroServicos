@@ -23,14 +23,10 @@
         </tr>
       </thead>
       <tbody>
-
-        @for(item of especies; track $index)
-        {
-        <tr>
+        <tr *ngFor="let item of especies">
           <td>{{item.nome}}</td>
           <td>{{item.status}}</td>
         </tr>
-        }
       </tbody>
     </table>
     <div class="pagination">

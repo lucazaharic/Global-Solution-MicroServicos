@@ -1,6 +1,4 @@
-// projects.component.ts
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProjectsService } from '../../services/projects.service';
 import { Projects } from '../../interfaces/Projects';
@@ -15,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  projectsForm: FormGroup;
+  projectsForm: FormGroup = new FormGroup({});
   projetos: Projects[] = [];
 
   constructor(private projectsService: ProjectsService, private formBuilder: FormBuilder) {
@@ -26,22 +24,17 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
+  applyFilters(): void {
+    const filters = this.projectsForm.value;
+    this.projectsService.list(filters).subscribe((projetos) => (this.projetos = projetos));
+  }
+
+  list(): void {
+    this.projectsService.list({}).subscribe((projetos) => (this.projetos = projetos));
+  }
+
   ngOnInit(): void {
     this.list();
   }
 
-  applyFilters(): void {
-    const filters = this.projectsForm.value;
-    this.projectsService.list(filters).subscribe((projetos) => {
-      console.log('Filtered Projects:', projetos); // Adicione esta linha para verificar os dados filtrados recebidos
-      this.projetos = projetos;
-    });
-  }
-
-  list(): void {
-    this.projectsService.list({}).subscribe((projetos) => {
-      console.log('All Projects:', projetos); // Adicione esta linha para verificar todos os dados recebidos
-      this.projetos = projetos;
-    });
-  }
 }

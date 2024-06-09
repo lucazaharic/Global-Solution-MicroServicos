@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./species.component.css']
 })
 export class SpeciesComponent implements OnInit {
-  speciesForm: FormGroup;
+  speciesForm: FormGroup = new FormGroup({});
   especies: Species[] = [];
 
   constructor(private speciesService: SpeciesService, private formBuilder: FormBuilder) {
@@ -23,15 +23,9 @@ export class SpeciesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.list();
-  }
-
   applyFilters(): void {
     const filters = this.speciesForm.value;
-    this.speciesService.list(filters).subscribe((especies) => {
-      this.especies = especies;
-    });
+    this.speciesService.list(filters).subscribe((especies) => (this.especies = especies));
   }
 
   list(): void {
@@ -39,4 +33,9 @@ export class SpeciesComponent implements OnInit {
       this.especies = especies;
     });
   }
+  
+  ngOnInit(): void {
+    this.list();
+  }
+
 }

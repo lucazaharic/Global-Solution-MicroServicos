@@ -19,6 +19,15 @@ export class OceanService {
       if (filters[key]) {
         params = params.set(key, filters[key]);
       }
+      // if (filters[key] !== null && filters[key] !== '') {
+      //   if (key === 'temperaturaAgua') {
+      //     params = params.set(key, parseInt(filters[key], 10).toString());
+      //   } else if (key === 'pH') {
+      //     params = params.set(key, parseFloat(filters[key]).toString());
+      //   } else {
+      //     params = params.set(key, filters[key]);
+      //   }
+      // }
     }
 
     return this.http.get<Ocean[]>(this.apiUrl, {params});

@@ -20,14 +20,13 @@ export class ProjectsService {
       }
     }
     return this.http.get<any[]>(this.apiUrl, { params }).pipe(
+      // map(data => {
+      //   return data.map(item => ({
+      //     projetosConservacao: item.projetosConservacao
+      //   }));
+      // })
       map(data => {
-        return data.map(item => ({
-          regiao: item.regiao,
-          temperaturaAgua: item.temperaturaAgua,
-          pH: item.pH,
-          nivelPoluicao: item.nivelPoluicao,
-          projetosConservacao: item.projetosConservacao
-        }));
+        return data.flatMap(ocean => ocean.projetosConservacao);
       })
     );
   }
